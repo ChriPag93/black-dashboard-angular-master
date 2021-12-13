@@ -1,0 +1,35 @@
+<div class="content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Contatti</h5>
+          <h3 class=" card-title">{{listacontatti.length}}</h3>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table datatable [dtOptions]="dtOptions" class=" table tablesorter">
+              <thead>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Cognome</th>
+              <th>Email</th>
+              </thead>
+              <tbody *ngIf="listacontatti?.length!=0">
+              <tr role="button" (click)="vaiariepilogo(contattocorrente)" *ngFor="let contattocorrente of listacontatti">
+                <td>{{contattocorrente.id}}</td>
+                <td>{{contattocorrente.nome}}</td>
+                <td>{{contattocorrente.cognome}}</td>
+                <td>{{contattocorrente.email}}</td>
+              </tr>
+              </tbody>
+              <tbody *ngIf="listacontatti?.length==0">
+              <h1>No data</h1>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
