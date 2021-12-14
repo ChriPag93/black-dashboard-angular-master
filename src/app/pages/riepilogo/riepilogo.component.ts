@@ -16,6 +16,7 @@ export class RiepilogoComponent implements OnInit {
   attivitacontatto;
   cardattivita=0;
   datiattivita;
+  datiattivitalink;
   constructor(private activecampain:ActivecampaignService, public route: ActivatedRoute) { }
 
 
@@ -68,7 +69,13 @@ export class RiepilogoComponent implements OnInit {
             this.cardattivita=2;
             this.datiattivita=resultlinkdatum.message;
           }
-        )
+        );
+        this.activecampain.chiamapost(result.linkDatum.links.link).subscribe(
+          resultlinkdatum => {
+            console.log(resultlinkdatum);
+            this.datiattivitalink=resultlinkdatum.link;
+          }
+        );
       }
     }
   )

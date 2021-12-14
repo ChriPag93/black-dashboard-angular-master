@@ -152,6 +152,7 @@
               <h2>Nessuna attività selezionata</h2>
             </div>
             <div *ngIf="cardattivita==1">
+              <h5>Tipologia attività: Log</h5>
               <h5>Inviato da: {{datiattivita.fromname}}</h5>
               <h5>{{datiattivita.name}}</h5>
               <h5>{{datiattivita.subject}}</h5>
@@ -159,6 +160,9 @@
               <iframe [srcdoc]="datiattivita.html" width="100%" height="300px" class="scrollbarnostro"></iframe>
             </div>
             <div *ngIf="cardattivita==2">
+              <h5>Tipologia attività: LinkData</h5>
+              <a [href]="datiattivitalink.link" target="_blank">{{datiattivitalink.link}}</a>
+              <h5>{{datiattivitalink.name}}</h5>
               <h5>Inviato da: {{datiattivita.fromname}}</h5>
               <h5>{{datiattivita.name}}</h5>
               <h5>{{datiattivita.subject}}</h5>
