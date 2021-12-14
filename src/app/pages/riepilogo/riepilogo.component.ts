@@ -14,6 +14,8 @@ export class RiepilogoComponent implements OnInit {
   listaluoghi = [];
   datigeneralicontatto;
   attivitacontatto;
+  cardattivita=0;
+  datiattivita;
   constructor(private activecampain:ActivecampaignService, public route: ActivatedRoute) { }
 
 
@@ -33,14 +35,42 @@ export class RiepilogoComponent implements OnInit {
     );
     this.activecampain.attivitacontatto(this.contattocorrente).subscribe(
       result=>{
+        console.log(result);
         this.attivitacontatto=result;
         this.ordinaperdata();
       }
     )
   }
-ordinaperdata(){
+  ordinaperdata(){
     this.attivitacontatto.sort(
       (a,b)=>new Date (b.tstamp).getTime()-new Date (a.tstamp).getTime()
     );
-}
+  }
+  chiamapostgenerale(url){
+  this.activecampain.chiamapost(url).subscribe(
+    result=>{
+      console.log("siamo qui");
+      console.log(result);
+      if(result.log!==null && result.log!==undefined){
+        this.activecampain.chiamapost(result.log.links.message).subscribe(
+          resultlog=>{
+            console.log(resultlog);
+            this.cardattivita=1;
+            this.datiattivita=resultlog.message;
+
+          }
+        )
+      }
+      if(result.linkDatum!==null && result.linkDatum!==undefined) {
+        this.activecampain.chiamapost(result.linkDatum.links.message).subscribe(
+          resultlinkdatum => {
+            console.log(resultlinkdatum);
+            this.cardattivita=2;
+            this.datiattivita=resultlinkdatum.message;
+          }
+        )
+      }
+    }
+  )
+  }
 }

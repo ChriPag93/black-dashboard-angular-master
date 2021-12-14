@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Contatto} from '../entities/contatto';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -92,5 +93,8 @@ export class ActivecampaignService {
 
   attivitacontatto(id) {
     return this.client.get<any>(this.urlbase + 'attivitac/' + id, this.creaheader());
+  }
+  chiamapost(url): Observable<any> {
+    return this.client.post<any>(this.urlbase + 'chiamapost', url );
   }
 }
