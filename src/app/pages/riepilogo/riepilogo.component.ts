@@ -77,6 +77,10 @@ export class RiepilogoComponent implements OnInit {
           }
         );
       }
+      if(result.trackingLog!==null && result.trackingLog!==undefined){
+            this.cardattivita=3;
+            this.datiattivita=result.trackingLog;
+      }
     }
   )
   }
