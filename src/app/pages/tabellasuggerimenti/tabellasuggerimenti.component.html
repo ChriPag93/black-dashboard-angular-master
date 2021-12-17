@@ -1,0 +1,21 @@
+<h5 class=" card-category">Suggerimenti</h5>
+<h3 class=" card-title">{{suggerimentoattivita.length}}</h3>
+<div class=" card-body">
+  <div class=" table-responsive">
+    <table datatable [dtOptions]="dtOptions" class=" table tablesorter">
+      <thead>
+      <th>Attività</th>
+      <th>Contatti</th>
+      </thead>
+      <tbody *ngIf="suggerimentoattivita?.length!=0">
+      <tr role="button" (click)="vaiariepilogo(suggattivita)" *ngFor="let suggattivita of suggerimentoattivita">
+        <td>{{suggattivita.attivita}}</td>
+        <td>{{suggattivita.contatti}}</td>
+      </tr>
+      </tbody>
+      <tbody *ngIf="suggerimentoattivita?.length==0">
+      <h1>No data</h1>
+      </tbody>
+    </table>
+  </div>
+</div>

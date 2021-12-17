@@ -1,0 +1,14 @@
+<div class="cards">
+<div class="card card-3">
+  <div class="card__icon"><i class="tim-icons icon-bank"></i></div>
+  <p class="card__exit"></p>
+  <div class="row">
+    <div  class="col-md-4 float-left" *ngFor="let cur of revenue">
+  <h6 class="card__title">{{cur.somma/100 | currency:cur.valuta}}</h6>
+    </div>
+  </div>
+  <p class="card__apply">
+    <a>Revenue</a>
+  </p>
+</div>
+</div>

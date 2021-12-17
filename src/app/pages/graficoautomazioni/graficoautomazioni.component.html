@@ -1,0 +1,27 @@
+<div class=" row">
+  <div class=" col-md-12">
+    <div class=" card card-chart">
+      <div class=" card-header">
+        <h5 class=" card-category">Total Shipments</h5>
+        <h3 class=" card-title">
+          <i *ngIf="colore === 'red'" class=" tim-icons icon-bell-55 text-danger-states"> </i>
+          <i *ngIf="colore === 'blue'" class=" tim-icons icon-bell-55 bluenostro"> </i>
+          <i *ngIf="colore === 'green'" class=" tim-icons icon-bell-55 verdenostro"> </i>
+          <i *ngIf="colore === 'primary'" class=" tim-icons icon-bell-55 primarynostro"> </i>
+          763,215
+        </h3>
+        <input [(ngModel)]="numeroautomazionedacercare" name="text" type="number" value="" size="20" maxlength="200" />
+        <button (click)="chiamarest()">Chiama rest</button>
+        <label>{{idprova}}</label>
+        <button (click)="cercablocks()">Blocks</button>
+        <button (click)="cercagoalsautomazione()">Goals</button>
+        <label>{{idblocco}}</label>
+        <button (click)="cercachildren()">Children</button>
+        <button (click)="cercagoalblocks()">Goal</button>
+      </div>
+      <div class=" card-body">
+        <div class=" chart-area"><canvas id="chartLineRed"> </canvas></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h3 class=" card-title">{{attivitapiusvolte.length}}</h3>
+<div class=" card-body">
+  <div class=" table-responsive">
+    <table datatable [dtOptions]="dtOptions" class=" table tablesorter">
+      <thead>
+      <th>Link</th>
+      <th>N. di volte</th>
+      </thead>
+      <tbody *ngIf="attivitapiusvolte?.length!=0">
+      <tr *ngFor="let attsvolte of attivitapiusvolte">
+        <td>{{attsvolte.attivita}}</td>
+        <td>{{attsvolte.contatti}}</td>
+      </tr>
+      </tbody>
+      <tbody *ngIf="attivitapiusvolte?.length==0">
+      <h1>No data</h1>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
