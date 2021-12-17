@@ -13,16 +13,26 @@ import {ListaautomazioniComponent} from '../../pages/listaautomazioni/listaautom
 import {BlocksComponent} from '../../pages/blocks/blocks.component';
 import {ContattiComponent} from '../../pages/contatti/contatti.component';
 import {RiepilogoComponent} from '../../pages/riepilogo/riepilogo.component';
+import {ScoreComponent} from '../../pages/score/score.component';
+import {Utility1Component} from '../../pages/utility1/utility1.component';
+import {RiepilogoordiniComponent} from '../../pages/riepilogoordini/riepilogoordini.component';
+import {HomeComponent} from '../../pages/home/home.component';
+import {ListacontattiattivitamancantiComponent} from '../../pages/listacontattiattivitamancanti/listacontattiattivitamancanti.component';
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "uovo", component: UovoComponent },
+  { path: "home", component: HomeComponent },
   { path: "impostazioniaccount", component: ImpostazioniaccountComponent},
   { path: "listaautomazioni", component: ListaautomazioniComponent},
   { path: "blocks", component: BlocksComponent },
   { path: "contatti", component: ContattiComponent},
+  { path: "score", component: ScoreComponent},
   { path: "riepilogo/:id", component: RiepilogoComponent},
+  { path: "utility1", component: Utility1Component},
+  { path: "listacontattiattivitamancanti", component: ListacontattiattivitamancantiComponent},
+  { path: "riepilogoordini/:id", component: RiepilogoordiniComponent},
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapComponent },
   { path: "notifications", component: NotificationsComponent },

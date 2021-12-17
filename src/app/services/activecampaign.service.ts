@@ -97,4 +97,22 @@ export class ActivecampaignService {
   chiamapost(url): Observable<any> {
     return this.client.post<any>(this.urlbase + 'chiamapost', url );
   }
+  numeroacquisti() {
+    return this.client.get<any>(this.urlbase + 'dashboard/numeroacquisti', this.creaheader());
+  }
+  numerocontatti() {
+    return this.client.get<any>(this.urlbase + 'dashboard/numerocontatti', this.creaheader());
+  }
+  revenue() {
+    return this.client.get<any>(this.urlbase + 'dashboard/revenue', this.creaheader());
+  }
+  attivitapiusvolte() {
+    return this.client.get<any>(this.urlbase + 'dashboard/attivitapiusvolte', this.creaheader());
+  }
+  suggerimentoattivita() {
+    return this.client.get<any>(this.urlbase + 'dashboard/suggerimenti', this.creaheader());
+  }
+  listacontattiattivitamancanti(url): Observable<any> {
+    return this.client.post<any>(this.urlbase + 'listacontattiattivitamancante', url);
+  }
 }

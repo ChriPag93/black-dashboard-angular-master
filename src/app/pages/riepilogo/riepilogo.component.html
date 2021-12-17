@@ -1,182 +1,33 @@
 <div class="content">
-  <div class="row">
-    <div class=" col-md-6">
-      <div class=" card card-user">
-        <div class=" card-body">
-          <p class=" card-text"></p>
-          <div class=" author">
-            <div class=" block block-one"></div>
-            <div class=" block block-two"></div>
-            <div class=" block block-three"></div>
-            <div class=" block block-four"></div>
-            <a href="javascript:void(0)">
-              <img alt="..." class=" avatar" src="assets/img/user.png" />
 
-              <h5 class=" title">{{datigeneralicontatto.nome}} {{datigeneralicontatto.cognome}}</h5>
-            </a>
-            <p class=" description">{{datigeneralicontatto.email}}</p>
+      <div class="row">
+        <div class=" col-md-6">
+          <div class=" card card-user">
+            <div class=" card-body">
+              <p class=" card-text"></p>
+          <app-profilocontatto></app-profilocontatto>
+            </div>
+            <div class="card-footer ">
+            <app-luoghicontatto></app-luoghicontatto>
+            </div>
           </div>
         </div>
-        <div class="card-footer ">
-          <h5>Luoghi</h5>
-          <span *ngFor="let luogo of listaluoghi" class=" badge badge-danger mr-md-1" >{{luogo}}</span>
-        </div>
-      </div>
-    </div>
 
-    <div class=" col-md-6">
-      <div class=" card">
-        <div class=" card-header"><h5 class=" title">Dati generali</h5></div>
-        <div class=" card-body">
-          <form>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Organization </label>
-                  <input
-                    name="organozation"
-                    [(ngModel)]="datigeneralicontatto.organization"
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Org Name </label>
-                  <input
-                    name="orgname"
-                    [(ngModel)]="datigeneralicontatto.orgname"
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
+
+        <div class=" col-md-6">
+          <div class=" card">
+            <div class=" card-header"><h5 class=" title">Dati generali</h5></div>
+            <div class=" card-body">
+              <form>
+        <app-datigeneralicontatto></app-datigeneralicontatto>
+              </form>
             </div>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Org Id </label>
-                  <input
-                    name="orgid"
-                    [(ngModel)]="datigeneralicontatto.orgid"
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Ip </label>
-                  <input
-                    name="ip"
-                    [(ngModel)]="datigeneralicontatto.ip"
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Mpp Tracking </label>
-                  <input
-                    name="mpp"
-                    [(ngModel)]="datigeneralicontatto.mpp_tracking"
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Id </label>
-                  <input
-                    name="id"
-                    [(ngModel)]="datigeneralicontatto.id"
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
   </div>
 
-    <div class="row">
-    <div class=" col-md-4">
-      <div class=" card scrollbarnostro">
-        <div class=" card-header"><h5 class=" title">Attività</h5></div>
-        <div class=" card-body">
-          <div class="container">
-        <div class="main">
-          <div *ngFor="let attivita of attivitacontatto">
-            <div (click)="chiamapostgenerale(attivita.links.reference)" class="timeline">
-              <span class=" badge badge-danger mr-md-1" >{{attivita.tstamp |date:'dd-MM-yyyy'}}</span>
-              <span class=" badge badge-success mr-md-1" >{{attivita.reference_type}}</span>
-            </div>
-          </div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
+   <app-attivitacontatto></app-attivitacontatto>
 
-      <div class=" col-md-8">
-        <div class="card">
-          <div class=" card-body">
-            <!-- Caso in cui nessuna attività è cliccata -->
-            <div *ngIf="cardattivita==0">
-              <h2>Nessuna attività selezionata</h2>
-            </div>
-            <div *ngIf="cardattivita==1">
-              <h5>Tipologia attività: Log</h5>
-              <h5>Inviato da: {{datiattivita.fromname}}</h5>
-              <h5>{{datiattivita.name}}</h5>
-              <h5>{{datiattivita.subject}}</h5>
-              <h5>{{datiattivita.mdate |date:'dd-MM-yyyy'}}</h5>
-              <iframe [srcdoc]="datiattivita.html" width="100%" height="300px" class="scrollbarnostro"></iframe>
-            </div>
-            <div *ngIf="cardattivita==2">
-              <h5>Tipologia attività: LinkData</h5>
-              <a [href]="datiattivitalink.link" target="_blank">{{datiattivitalink.link}}</a>
-              <h5>{{datiattivitalink.name}}</h5>
-              <h5>Inviato da: {{datiattivita.fromname}}</h5>
-              <h5>{{datiattivita.name}}</h5>
-              <h5>{{datiattivita.subject}}</h5>
-              <h5>{{datiattivita.mdate |date:'dd-MM-yyyy'}}</h5>
-              <iframe [srcdoc]="datiattivita.html" width="100%" height="300px" class="scrollbarnostro"></iframe>
-            </div>
-            <div *ngIf="cardattivita==3">
-              <h5>Sito visitato</h5>
-              <h5>{{datiattivita.value}}</h5>
-            </div>
-            </div>
-        </div>
-      </div>
-    </div>
 
 </div>
 
